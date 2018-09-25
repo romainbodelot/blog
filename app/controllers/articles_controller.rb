@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
     @comment.article_id = @article.id
   end
 
+  before_action :require_login, only: [:create, :new, :edit, :update, :destroy]
+
   def new
     @article = Article.new
   end
